@@ -7,7 +7,7 @@ import setupNotes from "./backend.js";
 import {isDesktop} from "../common/platform.js";
 
 
-const htmlTitleRegex = /<title>(.+?)<\/title>/;
+const htmlTitleRegex = /<title.*?>(.+?)<\/title>/;
 const fileTitleRegex = /^(.*) \(.*\)\.html$/;
 
 export default async function checkAndImport(file: string, fileContent?: string) {
@@ -41,5 +41,9 @@ export default async function checkAndImport(file: string, fileContent?: string)
     const settings = await getSettings();
     const finalTitle = settings.titleTemplate.replace("{pageTitle}", title).replace("{pageUrl}", url).replace("{saveDate}", date);
 
-    await api.runOnBackend(setupNotes, [content, {title: finalTitle, url, date, iconClass: `bx ${settings.iconTemplate}`}]);
+    await api.runOnBackend(setupNotes, [content, {title: finalTitle, pageUrl: url, date, iconClass: `bx ${settings.iconTemplate}`}]);
+
+    if (settings.shouldDeleteImport) {
+        fs.unlinkSync(file);
+    }
 }

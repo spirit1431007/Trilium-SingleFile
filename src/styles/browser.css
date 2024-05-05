@@ -5,6 +5,11 @@
     margin: 20px auto;
     width: 90%;
     max-width: 900px;
+    color: #abadba;
+}
+
+.browser-window input {
+    color: #abadba !important;
 }
 
 .browser-window .browser-body {
@@ -40,6 +45,19 @@
     font: 400 13px Arial, sans-serif;
     margin: 0 1rem 0 .5rem;
     padding: 5px 15px;
+    overflow: hidden;
+}
+
+.browser-window .address-bar a {
+    color: #DADDE1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.browser-window .address-bar a::before {
+    padding-top: 1px;
+    vertical-align: middle;
 }
 
 .browser-window .burger-bar {

@@ -36,7 +36,7 @@ export interface FileSetting extends Setting {
 const config = [
     {
         name: "File Watcher",
-        note: "These settings are only available on the desktop application!",
+        note: "These settings are only available on the desktop application! SingleFile extension filename format: {page-title} ({date-iso}).html.",
         settings: {
             watchFolder: {
                 name: "Watch Folder",
@@ -93,7 +93,7 @@ const config = [
                 note: "Whether the original file should be deleted after importing.",
                 type: "switch",
                 value: false,
-                disabled: true
+                disabled: !isDesktop()
             },
         }
     }

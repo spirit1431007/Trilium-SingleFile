@@ -2,6 +2,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 
+// hide title info
+const btn = document.querySelector(".ribbon-tab-title");
+if (btn) btn.click();
+
 /** @type {HTMLDivElement} */
 const browser = document.querySelector("#browser-target");
 if (!browser) return;
@@ -47,7 +51,8 @@ if (scroller.length) {
 
 // Assume the current note is the render note
 const currentNote = api.getActiveContextNote();
-address.textContent = currentNote.getLabelValue("url");
+const addressUrl = currentNote.getLabelValue("pageUrl") ?? currentNote.getLabelValue("url");
+address.innerHTML = `<a href="${addressUrl}">${decodeURIComponent(addressUrl)}</a>`;
 const children = await currentNote.getChildNotes();
 let target = children.find(n => n.hasLabel("singleFileSource"));
 

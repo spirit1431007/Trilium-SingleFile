@@ -26,8 +26,17 @@ There are some features specific to the desktop client of Trilium.
 ## Installation
 
 1. Download the `zip` file from the [latest release](https://github.com/rauenzi/Trilium-SingleFile/releases/latest) on GitHub.
-1. Import the zip into Trilium, but make sure you uncheck `Safe Import`!
+2. Import the zip into Trilium, but make sure you uncheck `Safe Import`!
 
+
+## Upgrade
+
+1. Delete old note `Trilium SingleFile`
+2. Import new note (see #Installation)
+3. Add relation
+    - create Search & Execute action
+    - search string: `#singleFilePreview`
+    - add relation: `renderNote` to `Renderer HTML`(select)
 
 
 ## Usage
