@@ -3,8 +3,8 @@
 
 
 // hide title info
-const btn = document.querySelector(".ribbon-tab-title");
-if (btn) btn.click();
+const btns = Array.from(document.querySelectorAll(".ribbon-tab-title")).filter((i)=> i.textContent === " Info");
+if (btns[0]) btns[0].click();
 
 /** @type {HTMLDivElement} */
 const browser = document.querySelector("#browser-target");
